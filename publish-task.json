@@ -1,0 +1,74 @@
+{
+  "id": "805fbdcc-38d9-4043-9c04-e84e7208baa8",
+  "name": "VSTSSitecoreShipPublishTask",
+  "friendlyName": "Sitecore Ship Publish Task",
+  "description": "Helps you publish .update files to a Sitecore instance from Powershell assuming you are using the Sitecore.Ship module",
+  "author": "stevevandenbush",
+  "helpMarkDown": "link to help",
+  "category": "Deploy",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [
+        "DotNetFramework"
+    ],
+  "version": {
+    "Major": "0",
+    "Minor": "2",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.83.0",
+  "instanceNameFormat": "VSTSSitecoreShipPublishTask",
+  "groups": [
+        {
+            "name":"advanced",
+            "displayName":"Advanced",
+            "isExpanded":false
+        }
+    ],
+  "inputs": [
+    {
+      "name": "SiteUrl",
+      "type": "string",
+      "label": "Site Url",
+      "defaultValue":"",
+      "required":true,
+      "helpMarkDown": "Url for the site you are installing the .update package on (ex: _http://mysite.dev_)",
+      "visibleRule": "type = FilePath"
+    },
+    {
+        "name": "PublishTargets",
+        "type": "string",
+        "label": "Publish Targets",
+        "defaultValue":"",
+        "required":false,
+        "helpMarkDown": "Url for the site you are installing the .update package on (ex: _http://mysite.dev_)",
+    },
+    {
+        "name": "ConnectionTimeOutInSeconds",
+        "type": "integer",
+        "label": "Connection Timeout",
+        "defaultValue":"",
+        "required":false,
+        "helpMarkDown": "Connection Timeout in seconds (ex: 300)",
+        "groupName":"advanced"
+    },
+    {
+      "name": "MaxTimeOutInSeconds",
+      "type": "integer",
+      "label": "Max Timeout",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Max Timeout in seconds  (ex: 900)",
+      "groupName":"advanced"
+    }
+  ],
+  "execution": {
+    "powershell": {
+      "target": "$(currentDirectory)\\publish-sitecorepackage.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}

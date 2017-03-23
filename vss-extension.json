@@ -1,0 +1,88 @@
+{
+    "manifestVersion": 1,
+    "id": "vsts-sitecore-ship-utils",
+    "name": "VSTS Sitecore Ship Utils",
+    "version": "0.0.4",
+    "publisher": "stevevandenbush",
+    "description": "Handy Tasks to help automate the publish and deploy of .update ",
+    "icons": {
+        "default": "images/ship.png",
+        "large": "images/ship.png"
+    },
+    "screenshots": [
+    	{
+      		"path": "images/ship.png"
+    	}
+    ],
+    "categories": [
+        "Build and release"
+    ],
+    "tags": [
+        "utility",
+        "tasks"
+    ],
+    "branding": {
+        "color": "#bcbcbc",
+        "theme": "dark"
+    },
+    "content": {
+        "details": {
+            "path": "overview.md"
+        }
+    },
+    "files": [
+      {
+        "path": "BuildTasks"
+      },
+      {
+        "path": "images",
+        "addressable": true
+      },
+      {
+        "path": "curl",
+        "addressable": true
+      }
+    ],
+    "scopes": [
+        "vso.build_execute",
+        "vso.serviceendpoint_manage"
+    ],
+    "public":false,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "contributions": [
+        {
+            "id": "task-deploy",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/VSTSSitecoreShipDeploy"
+            }
+        },
+        {
+            "id": "task-publish",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/VSTSSitecoreShipPublish"
+            }
+        },
+        {
+            "id": "task-get-external-ipaddr",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "BuildTasks/VSTSSitecoreShipGetExternalIP"
+            }
+        }
+    ]
+}
