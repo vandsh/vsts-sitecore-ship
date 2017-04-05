@@ -17,13 +17,22 @@ Param(
     [int]$ConnectionTimeOutInSeconds = 300,
     [Parameter(Position=4)]
     [ValidateRange(0, 99999)]
-    [int]$MaxTimeOutInSeconds = 900
+    [int]$MaxTimeOutInSeconds = 900,
+	[Parameter(Position=5)]
+    [string]$Username,
+	[Parameter(Position=6)]
+    [string]$Password
 
 )
 
 $fileUploadUrl = "$SiteUrl/services/publish/$PublishMode"
+
+$auth = ""
+if($Username){
+  $auth = ('-u "{0}:{1}"' -f $Username, $Password)
+ }
 $curlPath = .$PSScriptRoot\get-curlpath.ps1
-$curlCommand= "$curlPath -sS -fail --connect-timeout $ConnectionTimeOutInSeconds --max-time $MaxTimeOutInSeconds -X POST --form ""targets=$PublishTargets"" $fileUploadUrl"
+$curlCommand= "$curlPath $auth -sS -fail --connect-timeout $ConnectionTimeOutInSeconds --max-time $MaxTimeOutInSeconds -X POST --form ""targets=$PublishTargets"" $fileUploadUrl"
 
 Write-Output "INFO: Starting Invoke-Expression: $curlCommand"
 

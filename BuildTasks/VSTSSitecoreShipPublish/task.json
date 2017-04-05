@@ -14,8 +14,8 @@
         "DotNetFramework"
     ],
   "version": {
-    "Major": "0",
-    "Minor": "2",
+    "Major": "2",
+    "Minor": "0",
     "Patch": "0"
   },
   "minimumAgentVersion": "1.83.0",
@@ -48,7 +48,7 @@
         "name": "PublishMode",
         "type": "string",
         "label": "Publish Mode",
-        "defaultValue":"",
+        "defaultValue":"smart",
         "required":false,
         "helpMarkDown": "The publish mode (ex: smart, full or incremental)",
     },
@@ -56,7 +56,7 @@
         "name": "ConnectionTimeOutInSeconds",
         "type": "string",
         "label": "Connection Timeout",
-        "defaultValue":"",
+        "defaultValue":"300",
         "required":false,
         "helpMarkDown": "Connection Timeout in seconds (ex: 300)",
         "groupName":"advanced"
@@ -65,14 +65,32 @@
       "name": "MaxTimeOutInSeconds",
       "type": "string",
       "label": "Max Timeout",
-      "defaultValue": "",
+      "defaultValue": "900",
       "required": false,
       "helpMarkDown": "Max Timeout in seconds  (ex: 900)",
+      "groupName":"advanced"
+    },
+	{
+      "name": "Username",
+      "type": "string",
+      "label": "Username",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Insert Username here",
+      "groupName":"advanced"
+    },
+	{
+      "name": "Password",
+      "type": "string",
+      "label": "Password",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Insert Password here, also suggested that in order to keep password hidden, use _$(secretVariable)_ instead of plain text",
       "groupName":"advanced"
     }
   ],
   "execution": {
-    "VSTSSitecoreShipPublishTask": {
+    "powershell": {
       "target": "$(currentDirectory)\\publish-sitecorepackage.ps1",
       "argumentFormat": "",
       "workingDirectory": "$(currentDirectory)"

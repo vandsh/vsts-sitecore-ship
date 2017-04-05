@@ -15,12 +15,21 @@ Param(
     [int]$ConnectionTimeOutInSeconds = 300,
     [Parameter(Position=3)]
     [ValidateRange(0, 99999)]
-    [int]$MaxTimeOutInSeconds = 900
+    [int]$MaxTimeOutInSeconds = 900,
+	[Parameter(Position=4)]
+    [string]$Username,
+	[Parameter(Position=5)]
+    [string]$Password
 )
 
 $fileUploadUrl = "$SiteUrl/services/package/install/fileupload"
+
+$auth = ""
+if($Username){
+  $auth = ('-u "{0}:{1}"' -f $Username, $Password)
+ }
 $curlPath = .$PSScriptRoot\get-curlpath.ps1
-$curlCommand= "$curlPath -sS -fail --connect-timeout $ConnectionTimeOutInSeconds --max-time $MaxTimeOutInSeconds --form ""filename=@$UpdatePackagePath"" $fileUploadUrl --progress-bar"
+$curlCommand= "$curlPath $auth -sS -fail --connect-timeout $ConnectionTimeOutInSeconds --max-time $MaxTimeOutInSeconds --form ""filename=@$UpdatePackagePath"" $fileUploadUrl --progress-bar"
 
 Write-Output "INFO: Starting Invoke-Expression: $curlCommand"
 
