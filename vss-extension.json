@@ -1,8 +1,8 @@
 {
     "manifestVersion": 1,
     "id": "vsts-sitecore-ship-utils",
-    "name": "VSTS Sitecore Ship Utils",
-    "version": "1.25",
+    "name": "Sitecore Ship Utils",
+    "version": "1.28",
     "publisher": "stevevandenbush",
     "description": "Handy Tasks to help automate the publish and deploy of .update ",
     "icons": {
@@ -11,6 +11,12 @@
     },
     "screenshots": [
     	{
+      		"path": "images/deploytasks.png"
+    	},
+		    	{
+      		"path": "images/screenshots.png"
+    	},
+		{
       		"path": "images/ship.png"
     	}
     ],
@@ -43,7 +49,7 @@
         "vso.build_execute",
         "vso.serviceendpoint_manage"
     ],
-    "public":false,
+    "public":true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
