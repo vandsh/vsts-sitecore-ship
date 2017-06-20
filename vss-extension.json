@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "vsts-sitecore-ship-utils",
     "name": "Sitecore Ship Utils",
-    "version": "2.8.1",
+    "version": "2.9",
     "publisher": "stevevandenbush",
     "description": "Handy Tasks to help automate the publish and deploy of .update ",
     "icons": {
