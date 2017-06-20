@@ -4,7 +4,7 @@
   "friendlyName": "Sitecore Ship Deploy Task",
   "description": "Helps you upload and install .update files to a Sitecore instance from Powershell assuming you are using the Sitecore.Ship module",
   "author": "stevevandenbush",
-  "helpMarkDown": "link to help",
+  "helpMarkDown": "https://www.geekhive.com/buzz/post/2017/05/sitecore-ship-utils-vsts/",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -14,7 +14,7 @@
         "DotNetFramework"
     ],
   "version": {
-    "Major": "2",
+    "Major": "8",
     "Minor": "0",
     "Patch": "0"
   },
@@ -53,15 +53,6 @@
         "helpMarkDown": "Connection Timeout in seconds (ex: 300)",
         "groupName":"advanced"
     },
-    {
-      "name": "MaxTimeOutInSeconds",
-      "type": "string",
-      "label": "Max Timeout",
-      "defaultValue": "900",
-      "required": false,
-      "helpMarkDown": "Max Timeout in seconds  (ex: 900)",
-      "groupName":"advanced"
-    },
 	{
       "name": "Username",
       "type": "string",
@@ -79,6 +70,15 @@
       "required": false,
       "helpMarkDown": "Insert Password here, also suggested that in order to keep password hidden, use _$(secretVariable)_ instead of plain text",
       "groupName":"advanced"
+    },
+	{
+		"name": "ResultsOutputPath",
+		"type": "filePath",
+		"label": "Resulting Entries output file",
+		"defaultValue":"",
+		"required":false,
+		"helpMarkDown": "Path of the file to write the resulting entries to. This will create a flat file with IDs intended for use with the _listofitems_ publish type",
+		"groupName":"advanced"
     }
   ],
   "execution": {

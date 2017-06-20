@@ -4,7 +4,7 @@
   "friendlyName": "Sitecore Ship Get External IP Task",
   "description": "Helps you set the Whitelist IP so the hosted agent can deploy and publish to your instance",
   "author": "stevevandenbush",
-  "helpMarkDown": "link to help",
+  "helpMarkDown": "https://www.geekhive.com/buzz/post/2017/05/sitecore-ship-utils-vsts/",
   "category": "Deploy",
   "visibility": [
     "Build",
@@ -15,7 +15,7 @@
     ],
   "version": {
     "Major": "0",
-    "Minor": "2",
+    "Minor": "3",
     "Patch": "0"
   },
   "minimumAgentVersion": "1.83.0",
